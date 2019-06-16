@@ -3,3 +3,4 @@ node_modules
 public/bundle.*
 .rpt2_cache
 semantic/dist
+public/semantic.*
