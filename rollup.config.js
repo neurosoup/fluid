@@ -1,31 +1,16 @@
 import svelte from "rollup-plugin-svelte";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
-import typescript from "rollup-plugin-typescript2";
-
-import {
-  preprocess,
-  createEnv,
-  readConfigFile
-} from "@pyoner/svelte-ts-preprocess";
+import sass from "node-sass";
 
 const production = !process.env.ROLLUP_WATCH;
 
-const env = createEnv();
-const compilerOptions = readConfigFile(env);
-const opts = {
-  env,
-  compilerOptions: {
-    ...compilerOptions,
-    allowNonTsExtensions: true
-  }
-};
-
 export default {
-  input: "src/App.ts",
+  input: "src/App.js",
   output: {
-    sourcemap: true,
+    sourcemap: false,
     format: "iife",
     name: "app",
     file: "public/bundle.js"
@@ -39,7 +24,31 @@ export default {
       css: css => {
         css.write("public/bundle.css");
       },
-      preprocess: preprocess(opts)
+      preprocess: {
+        style: async ({ content, attributes }) => {
+          if (attributes.type !== "text/scss" && attributes.lang !== "scss")
+            return;
+
+          return new Promise((resolve, reject) => {
+            sass.render(
+              {
+                data: content,
+                includePaths: ["src"],
+                sourceMap: false,
+                outFile: "x" // this is necessary, but is ignored
+              },
+              (err, result) => {
+                if (err) return reject(err);
+
+                resolve({
+                  code: result.css.toString(),
+                  map: result.map ? result.map.toString() : ""
+                });
+              }
+            );
+          });
+        }
+      }
     }),
 
     // If you have external dependencies installed from
@@ -49,10 +58,16 @@ export default {
     // https://github.com/rollup/rollup-plugin-commonjs
     resolve(),
     commonjs(),
-    typescript(),
+
+    // Watch the `public` directory and refresh the
+    // browser on changes when not in production
+    !production && livereload("public"),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
     production && terser()
-  ]
+  ],
+  watch: {
+    clearScreen: false
+  }
 };

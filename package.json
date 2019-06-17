@@ -3,24 +3,18 @@
   "version": "1.0.0",
   "main": "main.js",
   "devDependencies": {
-    "@pyoner/svelte-ts-preprocess": "^1.0.1",
-    "@pyoner/svelte-types": "^3.4.4-2",
-    "@types/node": "^12.0.8",
     "concurrently": "^4.1.0",
     "electron": "^5.0.2",
     "node-sass": "^4.12.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.10.1",
     "rollup-plugin-commonjs": "^9.3.4",
-    "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-typescript2": "^0.21.0",
     "sirv-cli": "^0.4.0",
-    "svelte": "^3.0.0",
-    "typescript": "^3.4.5"
+    "svelte": "^3.0.0"
   },
   "scripts": {
     "build": "rollup -c",
@@ -30,10 +24,7 @@
     "start:dev": "sirv public --dev"
   },
   "dependencies": {
-    "jquery": "^3.4.1",
-    "semantic-ui": "^2.4.2"
-  },
-  "browserslist": [
-    "defaults"
-  ]
+    "bulma": "^0.7.5",
+    "svelma": "0.0.8"
+  }
 }
