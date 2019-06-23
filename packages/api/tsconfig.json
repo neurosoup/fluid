@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.settings.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "sourceMap": false,
+    "lib": ["es2016", "esnext.asynciterable"]
+  },
+  "include": ["src"],
+  "exclude": ["./*.ts"]
+}

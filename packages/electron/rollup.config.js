@@ -3,7 +3,7 @@ import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
-import sass from "node-sass";
+import autoPreprocess from "svelte-preprocess";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -21,34 +21,35 @@ export default {
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file — better for performance
-      css: css => {
-        css.write("public/bundle.css");
-      },
-      preprocess: {
-        style: async ({ content, attributes }) => {
-          if (attributes.type !== "text/scss" && attributes.lang !== "scss")
-            return;
+      // css: css => {
+      //   css.write("public/bundle.css");
+      // },
+      preprocess: autoPreprocess()
+      // preprocess: {
+      //   style: async ({ content, attributes }) => {
+      //     if (attributes.type !== "text/scss" && attributes.lang !== "scss")
+      //       return;
 
-          return new Promise((resolve, reject) => {
-            sass.render(
-              {
-                data: content,
-                includePaths: ["src"],
-                sourceMap: false,
-                outFile: "x" // this is necessary, but is ignored
-              },
-              (err, result) => {
-                if (err) return reject(err);
+      //     return new Promise((resolve, reject) => {
+      //       sass.render(
+      //         {
+      //           data: content,
+      //           includePaths: ["src"],
+      //           sourceMap: false,
+      //           outFile: "x" // this is necessary, but is ignored
+      //         },
+      //         (err, result) => {
+      //           if (err) return reject(err);
 
-                resolve({
-                  code: result.css.toString(),
-                  map: result.map ? result.map.toString() : ""
-                });
-              }
-            );
-          });
-        }
-      }
+      //           resolve({
+      //             code: result.css.toString(),
+      //             map: result.map ? result.map.toString() : ""
+      //           });
+      //         }
+      //       );
+      //     });
+      //   }
+      // }
     }),
 
     // If you have external dependencies installed from
@@ -56,8 +57,8 @@ export default {
     // some cases you'll need additional configuration —
     // consult the documentation for details:
     // https://github.com/rollup/rollup-plugin-commonjs
-    resolve(),
-    commonjs(),
+    resolve({ modulesOnly: true }),
+    commonjs({ exclude: ["node_modules/@fluid/**"] }),
 
     // Watch the `public` directory and refresh the
     // browser on changes when not in production

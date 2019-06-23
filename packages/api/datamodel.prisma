@@ -1,0 +1,35 @@
+type User {
+  id: ID! @unique
+  name: String
+  endUsers: [EndUser!]! @relation(name: "UserOnEndUser")
+}
+
+type Agent @model {
+  createdAt: DateTime!
+  endUser: EndUser @relation(name: "EndUserOnAgent")
+  id: ID! @unique
+  nickname: String!
+  email: String! @unique
+  tag: String @isUnique
+  updatedAt: DateTime!
+  ownedNetworks: [Network!] @relation(name: "MasterAgentOnNetwork")
+  networks: [Network!] @relation(name: "SlaveAgentOnNetwork")
+}
+
+type EndUser @model {
+  agents: [Agent!]! @relation(name: "EndUserOnAgent")
+  createdAt: DateTime!
+  email: String! @unique
+  fullName: String
+  id: ID! @unique
+  updatedAt: DateTime!
+  users: [User!]! @relation(name: "UserOnEndUser")
+}
+
+type Network @model {
+  id: ID! @unique
+  name: String!
+  description: String
+  master: Agent! @relation(name: "MasterAgentOnNetwork")
+  slaves: [Agent!] @relation(name: "SlaveAgentOnNetwork")
+}

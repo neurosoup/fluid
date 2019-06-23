@@ -1,0 +1,29 @@
+{
+  "name": "@fluid/api",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Lawrence <neurosoup@gmail.com>",
+  "homepage": "https://github.com/neurosoup/fluid#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neurosoup/fluid.git"
+  },
+  "scripts": {
+    "deploy": "./node_modules/.bin/prisma deploy"
+  },
+  "bugs": {
+    "url": "https://github.com/neurosoup/fluid/issues"
+  },
+  "devDependencies": {
+    "prisma": "^1.28.1",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "graphql": "^14.1.1",
+    "prisma-client-lib": "^1.28.5"
+  }
+}
