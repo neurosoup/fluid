@@ -1,15 +1,16 @@
-<script context="module">
-  let buttonUniqueIdCounter = 0;
-</script>
-
 <script>
-  import { onMount } from "svelte";
-  const _uniqueId = `m-button-svelte-id-${buttonUniqueIdCounter++}`;
-  onMount(() => {
-    //new MDCRipple(document.querySelector(`#${ _uniqueId }`));
-  });
+  export let ripple = false;
+  export let disabled = false;
+  export let flat = false;
+  export let classList = "";
 </script>
 
-<button id={_uniqueId} class={`waves-effect waves-light btn`}>
+<button
+  class={`${classList}`}
+  class:btn={!flat}
+  class:btn-flat={!!flat}
+  class:waves-effect={ripple}
+  class:disabled
+  on:click>
   <slot />
 </button>

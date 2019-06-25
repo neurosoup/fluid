@@ -12,8 +12,7 @@ export async function buildShared(cb: TaskCallback) {
     './node_modules/materialize-css/js/waves.js'
   ])
     .pipe(concat('shared.js'))
-    .pipe(insert.prepend('var M = {};\n'))
-    .pipe(insert.append('exports.Component = Component;'))
+    .pipe(insert.prepend('var M = {};\nexport '))
     .pipe(dest('dist'));
 
   cb();
