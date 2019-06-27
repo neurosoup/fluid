@@ -1,8 +1,10 @@
-export * from '../../node_modules/materialize-css/js/cash';
-export * from '../../dist/shared';
-
+import '../../dist/shared';
+import '../../node_modules/materialize-css/js/cash';
+import '../../node_modules/materialize-css/js/anime.min.js';
 import '../../dist/buttons';
-export const FloatingActionButton = M.FloatingActionButton;
 
 import SvelteButton from './Button.svelte';
 export const Button = SvelteButton;
+
+import SvelteFAB from './FloatingActionButton.svelte';
+export const FloatingActionButton = SvelteFAB;

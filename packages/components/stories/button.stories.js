@@ -3,8 +3,10 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 
 import '../dist/materialize.css';
+import '../index';
 
 import Button from './components/button.svelte';
+import FAB from './components/fab.svelte';
 
 const props = {
   group: () => ({
@@ -27,6 +29,38 @@ storiesOf('Button', module)
       },
       props: {
         label: 'Button',
+        ...props.group()
+      }
+    };
+  })
+  .add('Floating', () => {
+    return {
+      Component: Button,
+      on: {
+        click: action('clicked')
+      },
+      withKnobs: {
+        ...props.group()
+      },
+      props: {
+        label: '',
+        ...props.group(),
+        floating: true,
+        icon: 'add'
+      }
+    };
+  })
+  .add('Floating Action Button', () => {
+    return {
+      Component: FAB,
+      on: {
+        click: action('clicked')
+      },
+      withKnobs: {
+        ...props.group()
+      },
+      props: {
+        icon: 'add',
         ...props.group()
       }
     };

@@ -5,12 +5,7 @@ import * as insert from 'gulp-insert';
 type TaskCallback = (err?: Error) => void;
 
 export async function buildShared(cb: TaskCallback) {
-  src([
-    './node_modules/materialize-css/js/component.js',
-    './node_modules/materialize-css/js/global.js',
-    './node_modules/materialize-css/js/anime.min.js',
-    './node_modules/materialize-css/js/waves.js'
-  ])
+  src(['./node_modules/materialize-css/js/component.js', './node_modules/materialize-css/js/global.js', './node_modules/materialize-css/js/waves.js'])
     .pipe(concat('shared.js'))
     .pipe(insert.prepend('var M = {};\nexport '))
     .pipe(dest('dist'));
@@ -32,5 +27,3 @@ export async function buildComponents(cb: TaskCallback) {
 }
 
 export const start = series(buildShared, buildComponents);
-
-//watch('./*.+(js|ts)', { queue: true }, start);
