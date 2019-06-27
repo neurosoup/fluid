@@ -1,7 +1,15 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
-  "main": "main.js",
+  "private": true,
+  "name": "fluid",
+  "workspaces": [
+    "packages/api",
+    "packages/components",
+    "packages/electron"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neurosoup/fluid.git"
+  },
   "devDependencies": {
     "lerna": "^3.10.7"
   },

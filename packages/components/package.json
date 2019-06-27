@@ -11,7 +11,8 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neurosoup/fluid.git"
+    "url": "git+https://github.com/neurosoup/fluid.git",
+    "directory": "packages/components"
   },
   "scripts": {
     "css-build": "./node_modules/.bin/node-sass --omit-source-map-url materialize/core.scss dist/materialize.css",

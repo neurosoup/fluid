@@ -3,7 +3,7 @@
  * Do not make changes to this file directly
  */
 
-
+import * as types from "../types"
 
 
 
@@ -1322,13 +1322,13 @@ export interface NexusGenArgTypes {
       where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
     }
     login: { // args
-      email?: string | null; // String
-      password?: string | null; // String
+      email: string; // String!
+      password: string; // String!
     }
     signup: { // args
-      email?: string | null; // String
+      email: string; // String!
       name?: string | null; // String
-      password?: string | null; // String
+      password: string; // String!
     }
     updateAgent: { // args
       data: NexusGenInputs['AgentUpdateInput']; // AgentUpdateInput!
@@ -1511,7 +1511,7 @@ export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int
 export type NexusGenUnionNames = never;
 
 export interface NexusGenTypes {
-  context: any;
+  context: types.Context;
   inputTypes: NexusGenInputs;
   rootTypes: NexusGenRootTypes;
   argTypes: NexusGenArgTypes;

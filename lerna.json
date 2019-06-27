@@ -1,6 +1,4 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/api", "packages/components", "packages/electron"],
   "version": "0.0.0"
 }

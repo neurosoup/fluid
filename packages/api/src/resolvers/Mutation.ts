@@ -14,8 +14,8 @@ export const Mutation = prismaObjectType({
       type: 'AuthPayload',
       args: {
         name: stringArg({ nullable: true }),
-        email: stringArg(),
-        password: stringArg()
+        email: stringArg({ required: true }),
+        password: stringArg({ required: true })
       },
       resolve: async (parent, { name, email, password }, ctx) => {
         const hashedPassword = await hash(password, 10);
@@ -34,8 +34,8 @@ export const Mutation = prismaObjectType({
     t.field('login', {
       type: 'AuthPayload',
       args: {
-        email: stringArg(),
-        password: stringArg()
+        email: stringArg({ required: true }),
+        password: stringArg({ required: true })
       },
       resolve: async (parent, { email, password }, context) => {
         const user = await context.prisma.user({ email });

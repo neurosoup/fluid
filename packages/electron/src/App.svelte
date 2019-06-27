@@ -6,7 +6,6 @@
   export let url = "";
 </script>
 
-<Button ripple>Hello</Button>
 <Router {url}>
   <div>
     <Route path="/" component={Login} />

@@ -679,8 +679,8 @@ type Mutation {
   deleteManyUsers(where: UserWhereInput): BatchPayload!
   deleteNetwork(where: NetworkWhereUniqueInput!): Network
   deleteUser(where: UserWhereUniqueInput!): User
-  login(email: String, password: String): AuthPayload!
-  signup(email: String, name: String, password: String): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  signup(email: String!, name: String, password: String!): AuthPayload!
   updateAgent(data: AgentUpdateInput!, where: AgentWhereUniqueInput!): Agent
   updateEndUser(data: EndUserUpdateInput!, where: EndUserWhereUniqueInput!): EndUser
   updateManyAgents(data: AgentUpdateManyMutationInput!, where: AgentWhereInput): BatchPayload!

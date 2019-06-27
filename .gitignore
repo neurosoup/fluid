@@ -3,3 +3,4 @@ node_modules
 lib
 .env
 lerna-debug.log
+packages/api/.env.development
