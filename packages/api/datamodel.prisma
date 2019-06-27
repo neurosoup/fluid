@@ -1,13 +1,15 @@
 type User {
   id: ID! @unique
   name: String
+  email: String! @unique
+  password: String!
   endUsers: [EndUser!]! @relation(name: "UserOnEndUser")
 }
 
-type Agent @model {
+type Agent {
+  id: ID! @unique
   createdAt: DateTime!
   endUser: EndUser @relation(name: "EndUserOnAgent")
-  id: ID! @unique
   nickname: String!
   email: String! @unique
   tag: String @isUnique
@@ -16,17 +18,17 @@ type Agent @model {
   networks: [Network!] @relation(name: "SlaveAgentOnNetwork")
 }
 
-type EndUser @model {
+type EndUser {
+  id: ID! @unique
   agents: [Agent!]! @relation(name: "EndUserOnAgent")
   createdAt: DateTime!
   email: String! @unique
   fullName: String
-  id: ID! @unique
   updatedAt: DateTime!
   users: [User!]! @relation(name: "UserOnEndUser")
 }
 
-type Network @model {
+type Network {
   id: ID! @unique
   name: String!
   description: String

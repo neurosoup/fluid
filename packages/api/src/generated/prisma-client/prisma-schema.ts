@@ -3,9 +3,9 @@
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
 export const typeDefs = /* GraphQL */ `type Agent {
+  id: ID!
   createdAt: DateTime!
   endUser: EndUser
-  id: ID!
   nickname: String!
   email: String!
   tag: String
@@ -74,10 +74,10 @@ type AgentEdge {
 }
 
 enum AgentOrderByInput {
-  createdAt_ASC
-  createdAt_DESC
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
   nickname_ASC
   nickname_DESC
   email_ASC
@@ -89,8 +89,8 @@ enum AgentOrderByInput {
 }
 
 type AgentPreviousValues {
-  createdAt: DateTime!
   id: ID!
+  createdAt: DateTime!
   nickname: String!
   email: String!
   tag: String
@@ -98,14 +98,6 @@ type AgentPreviousValues {
 }
 
 input AgentScalarWhereInput {
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -120,6 +112,14 @@ input AgentScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   nickname: String
   nickname_not: String
   nickname_in: [String!]
@@ -302,15 +302,6 @@ input AgentUpsertWithWhereUniqueWithoutNetworksInput {
 }
 
 input AgentWhereInput {
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  endUser: EndUserWhereInput
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -325,6 +316,15 @@ input AgentWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  endUser: EndUserWhereInput
   nickname: String
   nickname_not: String
   nickname_in: [String!]
@@ -414,11 +414,11 @@ type BatchPayload {
 scalar DateTime
 
 type EndUser {
+  id: ID!
   agents(where: AgentWhereInput, orderBy: AgentOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Agent!]
   createdAt: DateTime!
   email: String!
   fullName: String
-  id: ID!
   updatedAt: DateTime!
   users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User!]
 }
@@ -464,27 +464,41 @@ type EndUserEdge {
 }
 
 enum EndUserOrderByInput {
+  id_ASC
+  id_DESC
   createdAt_ASC
   createdAt_DESC
   email_ASC
   email_DESC
   fullName_ASC
   fullName_DESC
-  id_ASC
-  id_DESC
   updatedAt_ASC
   updatedAt_DESC
 }
 
 type EndUserPreviousValues {
+  id: ID!
   createdAt: DateTime!
   email: String!
   fullName: String
-  id: ID!
   updatedAt: DateTime!
 }
 
 input EndUserScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -521,20 +535,6 @@ input EndUserScalarWhereInput {
   fullName_not_starts_with: String
   fullName_ends_with: String
   fullName_not_ends_with: String
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
   updatedAt: DateTime
   updatedAt_not: DateTime
   updatedAt_in: [DateTime!]
@@ -638,6 +638,20 @@ input EndUserUpsertWithWhereUniqueWithoutUsersInput {
 }
 
 input EndUserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
   agents_every: AgentWhereInput
   agents_some: AgentWhereInput
   agents_none: AgentWhereInput
@@ -677,20 +691,6 @@ input EndUserWhereInput {
   fullName_not_starts_with: String
   fullName_ends_with: String
   fullName_not_ends_with: String
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
   updatedAt: DateTime
   updatedAt_not: DateTime
   updatedAt_in: [DateTime!]
@@ -708,8 +708,8 @@ input EndUserWhereInput {
 }
 
 input EndUserWhereUniqueInput {
-  email: String
   id: ID
+  email: String
 }
 
 scalar Long
@@ -1049,6 +1049,8 @@ type Subscription {
 type User {
   id: ID!
   name: String
+  email: String!
+  password: String!
   endUsers(where: EndUserWhereInput, orderBy: EndUserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [EndUser!]
 }
 
@@ -1060,6 +1062,8 @@ type UserConnection {
 
 input UserCreateInput {
   name: String
+  email: String!
+  password: String!
   endUsers: EndUserCreateManyWithoutUsersInput
 }
 
@@ -1070,6 +1074,8 @@ input UserCreateManyWithoutEndUsersInput {
 
 input UserCreateWithoutEndUsersInput {
   name: String
+  email: String!
+  password: String!
 }
 
 type UserEdge {
@@ -1082,11 +1088,17 @@ enum UserOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
 }
 
 type UserPreviousValues {
   id: ID!
   name: String
+  email: String!
+  password: String!
 }
 
 input UserScalarWhereInput {
@@ -1118,6 +1130,34 @@ input UserScalarWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
   AND: [UserScalarWhereInput!]
   OR: [UserScalarWhereInput!]
   NOT: [UserScalarWhereInput!]
@@ -1143,15 +1183,21 @@ input UserSubscriptionWhereInput {
 
 input UserUpdateInput {
   name: String
+  email: String
+  password: String
   endUsers: EndUserUpdateManyWithoutUsersInput
 }
 
 input UserUpdateManyDataInput {
   name: String
+  email: String
+  password: String
 }
 
 input UserUpdateManyMutationInput {
   name: String
+  email: String
+  password: String
 }
 
 input UserUpdateManyWithoutEndUsersInput {
@@ -1173,6 +1219,8 @@ input UserUpdateManyWithWhereNestedInput {
 
 input UserUpdateWithoutEndUsersDataInput {
   name: String
+  email: String
+  password: String
 }
 
 input UserUpdateWithWhereUniqueWithoutEndUsersInput {
@@ -1215,6 +1263,34 @@ input UserWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
   endUsers_every: EndUserWhereInput
   endUsers_some: EndUserWhereInput
   endUsers_none: EndUserWhereInput
@@ -1225,5 +1301,6 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  email: String
 }
 `

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "lib",
     "sourceMap": false,
-    "lib": ["es2016", "esnext.asynciterable"]
+    "lib": ["es2016", "esnext.asynciterable", "dom"]
   },
   "include": ["src"],
   "exclude": ["./*.ts"]

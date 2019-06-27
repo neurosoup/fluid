@@ -16,7 +16,6 @@
     "strictNullChecks": true,
     "strict": true,
     "noUnusedLocals": true,
-    "removeComments": true,
-    "lib": ["es2016", "esnext.asynciterable"]
+    "removeComments": true
   }
 }
