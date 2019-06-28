@@ -1,7 +1,18 @@
 <script>
-
+  export let middle;
 </script>
 
-<div class="row">
+<style>
+  .middle {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<!-- 
+ -->
+
+<div class="row" class:middle>
   <slot />
 </div>

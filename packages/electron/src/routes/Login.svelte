@@ -3,6 +3,11 @@
 </script>
 
 <Container>
-  <Row>LOGIN</Row>
-  <Row>PASS</Row>
+  <Row />
+  <Row>
+    <Column align="middle" sm={6}>
+      <Row>LOGIN</Row>
+      <Row>PASS</Row>
+    </Column>
+  </Row>
 </Container>
