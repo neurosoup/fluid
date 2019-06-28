@@ -1,1 +1,1 @@
-export * from './svelte/button';
+export * from './svelte';
