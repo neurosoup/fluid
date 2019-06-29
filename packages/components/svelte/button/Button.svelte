@@ -4,10 +4,12 @@
   export let flat = false;
   export let floating = false;
   export let icon = "";
+  export let type;
   export let classList = "";
 </script>
 
 <button
+  {type}
   class={`${classList}`}
   class:btn={!flat}
   class:btn-flat={!!flat}

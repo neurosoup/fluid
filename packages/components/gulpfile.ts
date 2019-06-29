@@ -20,7 +20,9 @@ async function buildComponent(name: string, importComponentClass: boolean = fals
 }
 
 export async function buildComponents(cb: TaskCallback) {
+  await buildComponent('modal', true);
   await buildComponent('buttons', true);
+  await buildComponent('forms');
   await buildComponent('cards');
 
   cb();

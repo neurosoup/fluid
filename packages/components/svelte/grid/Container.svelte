@@ -1,5 +1,5 @@
 <script>
-  export let middle;
+
 </script>
 
 <div class="container">

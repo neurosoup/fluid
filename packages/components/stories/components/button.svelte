@@ -1,6 +1,11 @@
 <script>
-  import { Button } from "../../index";
+  import { Button, Container, Row } from "../../index";
   export let label = "";
 </script>
 
-<Button {...$$props} on:click>{label}</Button>
+<Container>
+  <Row />
+  <Row>
+    <Button {...$$props} on:click>{label}</Button>
+  </Row>
+</Container>

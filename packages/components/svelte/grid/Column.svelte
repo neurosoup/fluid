@@ -7,7 +7,12 @@
 
   let classes = ["col"];
 
-  $: if (sm) classes = [...classes, `s${sm}`];
+  $: {
+    if (sm) classes = [...classes, `s${sm}`];
+    if (md) classes = [...classes, `m${md}`];
+    if (lg) classes = [...classes, `l${lg}`];
+    if (xl) classes = [...classes, `xl${xl}`];
+  }
 </script>
 
 <style>
