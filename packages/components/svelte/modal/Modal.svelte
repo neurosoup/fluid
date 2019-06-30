@@ -75,7 +75,8 @@
       opacity,
       dismissible,
       startingTop,
-      endingTop
+      endingTop,
+      preventScrolling: true
     };
 
     instance = M.Modal.init(node, options);
