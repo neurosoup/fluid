@@ -14,6 +14,7 @@
 <div class="input-field">
   <input
     id={name}
+    {name}
     {type}
     {placeholder}
     {disabled}

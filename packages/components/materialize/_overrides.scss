@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #2f2f2f;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.modal {
+  background-color: #2f2f2f;
+  width: 50%;
+
+  .modal-content {
+    background-color: #2f2f2f;
+  }
+
+  .modal-footer {
+    background-color: #2f2f2f;
+  }
+}
+
+input:not([type]),
+input[type='text']:not(.browser-default),
+input[type='password']:not(.browser-default),
+input[type='email']:not(.browser-default),
+input[type='url']:not(.browser-default),
+input[type='time']:not(.browser-default),
+input[type='date']:not(.browser-default),
+input[type='datetime']:not(.browser-default),
+input[type='datetime-local']:not(.browser-default),
+input[type='tel']:not(.browser-default),
+input[type='number']:not(.browser-default),
+input[type='search']:not(.browser-default),
+textarea.materialize-textarea {
+  color: $off-black;
+}

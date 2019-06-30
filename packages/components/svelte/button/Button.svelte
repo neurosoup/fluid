@@ -5,12 +5,12 @@
   export let floating = false;
   export let icon = "";
   export let type;
-  export let classList = "";
+  export let classes = "";
 </script>
 
 <button
   {type}
-  class={`${classList}`}
+  class={`${classes}`}
   class:btn={!flat}
   class:btn-flat={!!flat}
   class:btn-floating={!!floating}

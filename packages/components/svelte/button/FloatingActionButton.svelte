@@ -2,7 +2,7 @@
   export let ripple = false;
   export let disabled = false;
   export let icon = "";
-  export let classList = "";
+  export let classes = "";
 
   const mounted = node => {
     const options = {
@@ -22,7 +22,7 @@
 
 <div class="fixed-action-btn" use:mounted>
   <button
-    class={`btn-floating btn-large ${classList} `}
+    class={`btn-floating btn-large ${classes} `}
     class:waves-effect={ripple}
     class:disabled
     on:click>

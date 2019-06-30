@@ -12,7 +12,7 @@ const props = {
   group: () => ({
     disabled: boolean('Disabled', false),
     ripple: boolean('Ripple', true),
-    classList: text('', '')
+    classes: text('', '')
   })
 };
 
