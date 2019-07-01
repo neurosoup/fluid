@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/svelte';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean, text, select } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
 import '../dist/materialize.css';
 import '../index';

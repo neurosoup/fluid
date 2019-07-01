@@ -36,7 +36,7 @@ $primary-color: color('grey', 'darken-4') !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: color('pink', 'darken-2') !default;
+$secondary-color: #015871;
 $success-color: color('green', 'base') !default;
 $error-color: color('red', 'base') !default;
 $link-color: color('light-blue', 'darken-1') !default;
@@ -49,6 +49,8 @@ $link-color: color('light-blue', 'darken-1') !default;
 
 // 4. Cards
 // ==========================================================================
+
+$card-bg-color: #2f2f2f !default;
 
 // 5. Carousel
 // ==========================================================================
@@ -68,7 +70,7 @@ $link-color: color('light-blue', 'darken-1') !default;
 // 10. Forms
 // ==========================================================================
 
-$input-disabled-color: rgba(255, 255, 255, 0.42) !default;
+$input-disabled-color: #949494 !default;
 
 // 11. Global
 // ==========================================================================

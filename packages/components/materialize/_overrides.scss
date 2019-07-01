@@ -2,8 +2,9 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: radial-gradient(ellipse at center, #4c4c4c 0%, #4c4c4c 35%, #2f2f2f 100%);
   overflow: hidden;
+
+  background: radial-gradient(ellipse at center, rgba(255, 254, 234, 1) 0%, rgba(255, 254, 234, 1) 35%, #b7e8eb 100%);
 }
 
 main {
@@ -37,4 +38,8 @@ input[type='number']:not(.browser-default),
 input[type='search']:not(.browser-default),
 textarea.materialize-textarea {
   color: $off-black;
+}
+
+.input-field .helper-text {
+  color: $input-border-color;
 }

@@ -9,7 +9,7 @@ function loadStories() {
 
 addParameters({
   options: {
-    theme: themes.dark,
+    theme: null,
     panelPosition: 'right'
   }
 });

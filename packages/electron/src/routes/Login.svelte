@@ -19,33 +19,53 @@
     color: #757575;
   }
 
+  .bg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* background: radial-gradient(
+      ellipse at center,
+      #4c4c4c 0%,
+      #4c4c4c 35%,
+      #2f2f2f 100%
+    ); */
+
+    /* background: radial-gradient(
+      ellipse at center,
+      rgba(255, 254, 234, 1) 0%,
+      rgba(255, 254, 234, 1) 35%,
+      #b7e8eb 100%
+    ); */
+  }
+
   .ocean {
     height: 0%;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
-    background: rgba(194, 24, 91, 0.71);
   }
 
   .wave {
-    background: url(../assets/grey-wave.svg) repeat-x;
+    background: url(../assets/wave.svg) repeat-x;
     position: absolute;
-    top: -400px;
+    top: -198px;
     width: 6400px;
-    height: 400px;
-    -webkit-animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-    animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    height: 198px;
+    -webkit-animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 
   .wave:nth-of-type(2) {
-    top: -390px;
-    -webkit-animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
-      swell 120s ease -1.25s infinite;
-    animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
-      swell 120s ease -1.25s infinite;
+    top: -175px;
+    -webkit-animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+      swell 7s ease -1.25s infinite;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+      swell 7s ease -1.25s infinite;
     opacity: 1;
   }
 
@@ -90,11 +110,12 @@
   }
 </style>
 
+<div class="bg" />
+
 <div class="ocean">
   <div class="wave" />
   <div class="wave" />
 </div>
-
 <Modal open on:submit={submit} dismissible={false} opacity={0.2} maxWidth={400}>
   <div slot="content">
     <Row center>
