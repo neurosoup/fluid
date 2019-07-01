@@ -19,147 +19,91 @@
     color: #757575;
   }
 
-  .area {
-    background: #2f2f2f;
-    background-image: linear-gradient(to top, #2f2f2f, #202020);
+  .ocean {
+    height: 0%;
     width: 100%;
-    height: 100vh;
-  }
-
-  .circles {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    background: rgba(194, 24, 91, 0.71);
   }
 
-  .circles li {
+  .wave {
+    background: url(../assets/grey-wave.svg) repeat-x;
     position: absolute;
-    display: block;
-    list-style: none;
-    width: 20px;
-    height: 20px;
-    background: #0277bd5e;
-    animation: animate 25s linear infinite;
-    bottom: -150px;
+    top: -400px;
+    width: 6400px;
+    height: 400px;
+    -webkit-animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
-  .circles li:nth-child(1) {
-    left: 25%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
+  .wave:nth-of-type(2) {
+    top: -390px;
+    -webkit-animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+      swell 120s ease -1.25s infinite;
+    animation: wave 120s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+      swell 120s ease -1.25s infinite;
+    opacity: 1;
   }
 
-  .circles li:nth-child(2) {
-    left: 10%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
-    animation-duration: 12s;
-  }
-
-  .circles li:nth-child(3) {
-    left: 70%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 4s;
-  }
-
-  .circles li:nth-child(4) {
-    left: 40%;
-    width: 60px;
-    height: 60px;
-    animation-delay: 0s;
-    animation-duration: 18s;
-  }
-
-  .circles li:nth-child(5) {
-    left: 65%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 0s;
-  }
-
-  .circles li:nth-child(6) {
-    left: 75%;
-    width: 110px;
-    height: 110px;
-    animation-delay: 40s;
-  }
-
-  .circles li:nth-child(7) {
-    left: 35%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 50s;
-  }
-
-  .circles li:nth-child(8) {
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 15s;
-    animation-duration: 15s;
-  }
-
-  .circles li:nth-child(9) {
-    left: 20%;
-    width: 15px;
-    height: 15px;
-    animation-delay: 2s;
-    animation-duration: 35s;
-  }
-
-  .circles li:nth-child(10) {
-    left: 85%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 0s;
-    animation-duration: 30s;
-  }
-
-  @keyframes animate {
+  @-webkit-keyframes wave {
     0% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 1;
-      border-radius: 25%;
+      margin-left: 0;
     }
-
     100% {
-      transform: translateY(-1000px) rotate(720deg);
-      opacity: 0;
-      border-radius: 50%;
+      margin-left: -1600px;
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1600px;
+    }
+  }
+  @-webkit-keyframes swell {
+    0%,
+    100% {
+      -webkit-transform: translate3d(0, -25px, 0);
+      transform: translate3d(0, -25px, 0);
+    }
+    50% {
+      -webkit-transform: translate3d(0, 5px, 0);
+      transform: translate3d(0, 5px, 0);
+    }
+  }
+  @keyframes swell {
+    0%,
+    100% {
+      -webkit-transform: translate3d(0, -25px, 0);
+      transform: translate3d(0, -25px, 0);
+    }
+    50% {
+      -webkit-transform: translate3d(0, 5px, 0);
+      transform: translate3d(0, 5px, 0);
     }
   }
 </style>
 
-<div class="area">
-  <ul class="circles">
-    <li />
-    <li />
-    <li />
-    <li />
-    <li />
-    <li />
-    <li />
-    <li />
-    <li />
-    <li />
-  </ul>
+<div class="ocean">
+  <div class="wave" />
+  <div class="wave" />
 </div>
 
-<Modal open on:submit={submit} dismissible={false} opacity={0.2}>
+<Modal open on:submit={submit} dismissible={false} opacity={0.2} maxWidth={400}>
   <div slot="content">
     <Row center>
       <h4>Bienvenue !</h4>
-      <h6>Contents de vous revoir ;)</h6>
+      <h6>Content de vous revoir ;)</h6>
     </Row>
     <Row />
     <Row>
-      <Column align="middle" lg={6}>
+      <Column align="middle" lg={12}>
         <Row>
           <InputField
             type="email"

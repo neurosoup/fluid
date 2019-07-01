@@ -6,6 +6,7 @@
   export let dismissible = true;
   export let startingTop = "4%";
   export let endingTop = "10%";
+  export let maxWidth;
 
   const dispatch = createEventDispatcher();
 
@@ -92,7 +93,7 @@
   };
 </script>
 
-<div class="modal" use:mounted>
+<div class="modal" style="max-width: {maxWidth || '55%'}px" use:mounted>
   <form on:submit|preventDefault={submit}>
     <div class="modal-content">
       <slot name="content" />
