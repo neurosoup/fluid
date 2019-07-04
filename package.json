@@ -1,11 +1,6 @@
 {
   "private": true,
   "name": "fluid",
-  "workspaces": [
-    "packages/api",
-    "packages/components",
-    "packages/electron"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/neurosoup/fluid.git"

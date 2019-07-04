@@ -1,5 +1,8 @@
 <script>
+  import { Link } from "svelte-routing";
   import { Container } from "@fluid/components";
 </script>
 
-<Container>SIGNUP</Container>
+<Container>
+  <Link to="login">Login</Link>
+</Container>

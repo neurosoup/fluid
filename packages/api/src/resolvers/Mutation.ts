@@ -40,11 +40,11 @@ export const Mutation = prismaObjectType({
       resolve: async (parent, { email, password }, context) => {
         const user = await context.prisma.user({ email });
         if (!user) {
-          throw new Error(`No user found for email: ${email}`);
+          throw new Error(`L'email ${email} n'existe pas`);
         }
         const passwordValid = await compare(password, user.password);
         if (!passwordValid) {
-          throw new Error('Invalid password');
+          throw new Error('Le mot de passe ne correspond pas');
         }
         return {
           token: sign({ userId: user.id }, APP_SECRET),

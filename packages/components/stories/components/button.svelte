@@ -3,7 +3,7 @@
   export let label = "";
 </script>
 
-<Container dimmer={0.2}>
+<Container>
   <Row />
   <Row>
     <Button {...$$props} on:click>{label}</Button>

@@ -19,7 +19,7 @@
     {placeholder}
     {disabled}
     class:validate
-    class:required />
+    {required} />
   <label for={name}>{label}</label>
   {#if errorText || successText || helperText}
     <span

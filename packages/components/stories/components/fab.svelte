@@ -2,7 +2,7 @@
   import { FloatingActionButton, Button, Container, Row } from "../../index";
 </script>
 
-<Container dimmer={0.2}>
+<Container>
   <Row />
   <Row>
     <FloatingActionButton {...$$props} on:click>

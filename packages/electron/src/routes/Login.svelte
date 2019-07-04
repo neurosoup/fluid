@@ -1,4 +1,22 @@
+<script context="module">
+  import gql from "graphql-tag";
+  import { client } from "../apollo";
+  const LOGIN = gql`
+    mutation login($email: String!, $password: String!) {
+      login(email: $email, password: $password) {
+        token
+        user {
+          name
+        }
+      }
+    }
+  `;
+</script>
+
 <script>
+  import { mutate } from "svelte-apollo";
+  import { link } from "svelte-routing";
+
   import {
     Button,
     Modal,
@@ -8,8 +26,17 @@
     InputField
   } from "@fluid/components";
 
-  const submit = e => {
-    console.log("------------->e", e);
+  let errorMessage = "";
+
+  const submit = async e => {
+    try {
+      const mutation = await mutate(client, {
+        mutation: LOGIN,
+        variables: { email: e.detail[0], password: e.detail[1] }
+      });
+    } catch (error) {
+      errorMessage = error.graphQLErrors[0].message;
+    }
   };
 </script>
 
@@ -19,24 +46,27 @@
     color: #757575;
   }
 
+  p.error {
+    color: #f44336;
+  }
+
   .bg {
     height: 100%;
     width: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 254, 234, 1) 0%,
+      rgba(255, 254, 234, 1) 35%,
+      #b7e8eb 100%
+    );
     /* background: radial-gradient(
       ellipse at center,
       #4c4c4c 0%,
       #4c4c4c 35%,
       #2f2f2f 100%
-    ); */
-
-    /* background: radial-gradient(
-      ellipse at center,
-      rgba(255, 254, 234, 1) 0%,
-      rgba(255, 254, 234, 1) 35%,
-      #b7e8eb 100%
     ); */
   }
 
@@ -141,8 +171,11 @@
         <Row>
           <p>
             Vous n'êtes pas encore inscrit ?
-            <a href="index.html">Inscription</a>
+            <a href="signup" use:link>Inscription</a>
           </p>
+        </Row>
+        <Row>
+          <p class="error">{errorMessage}</p>
         </Row>
       </Column>
     </Row>

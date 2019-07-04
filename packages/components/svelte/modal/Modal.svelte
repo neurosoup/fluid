@@ -87,6 +87,7 @@
 
     return {
       destroy() {
+        instance.close();
         instance.destroy();
       }
     };

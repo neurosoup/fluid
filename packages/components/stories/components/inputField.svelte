@@ -15,15 +15,12 @@
   });
 </script>
 
-<Container dimmer={0.2}>
-  <Card>
-    <CardItem>
-      <Row>
-        <form on:submit|preventDefault>
-          <InputField {...$$props} />
-          <Button type="submit" ripple>Submit</Button>
-        </form>
-      </Row>
-    </CardItem>
-  </Card>
+<Container>
+  <Row />
+  <Row>
+    <form on:submit|preventDefault>
+      <InputField {...$$props} />
+      <Button type="submit" ripple>Submit</Button>
+    </form>
+  </Row>
 </Container>
