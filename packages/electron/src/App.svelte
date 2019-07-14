@@ -4,17 +4,17 @@
   import { setClient } from "svelte-apollo";
   import { Router, Route } from "svelte-routing";
 
-  import Login from "./routes/Login.svelte";
-  import Signup from "./routes/Signup.svelte";
+  import Sign from "./routes/Sign.svelte";
 
-  export let url = "login";
+  export let url = "";
 
   setClient(client);
 </script>
 
 <Router {url}>
-  <div>
-    <Route path="login" component={Login} />
-    <Route path="signup" component={Signup} />
-  </div>
+  <Route component={Sign} />
+  <Route path="login" component={Sign} />
+  <Route path="signup">
+    <Sign mode="signup" />
+  </Route>
 </Router>

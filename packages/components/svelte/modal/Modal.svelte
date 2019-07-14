@@ -2,7 +2,7 @@
   import { createEventDispatcher } from "svelte";
 
   export let open = false;
-  export let opacity = 0.5;
+  export let opacity = 0.2;
   export let dismissible = true;
   export let startingTop = "4%";
   export let endingTop = "10%";

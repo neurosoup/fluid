@@ -19,8 +19,8 @@ export default {
     svelte({
       // enable run-time checks when not in production
       dev: !production,
-      hydratable: true,
       preprocess: autoPreprocess()
+      //hydratable: true
     }),
 
     // If you have external dependencies installed from
