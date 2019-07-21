@@ -30,15 +30,19 @@
 
   export let open = true;
   let errorMessage = "";
+  let loading = false;
 
   const submit = async e => {
     try {
+      loading = true;
       const mutation = await mutate(client, {
         mutation: LOGIN,
         variables: { email: e.detail[0], password: e.detail[1] }
       });
     } catch (error) {
       errorMessage = error.graphQLErrors[0].message;
+    } finally {
+      loading = false;
     }
   };
 </script>
@@ -54,7 +58,13 @@
   }
 </style>
 
-<Modal {open} on:submit={submit} dismissible={false} maxWidth={400}>
+<Modal
+  {open}
+  on:submit={submit}
+  dismissible={false}
+  maxWidth={400}
+  opacity="0"
+  shadow="none">
   <div slot="content">
     <Row center>
       <h4>Bienvenue !</h4>
@@ -89,6 +99,6 @@
     </Row>
   </div>
   <div slot="footer">
-    <Button type="submit">Se connecter</Button>
+    <Button type="submit" {loading}>Se connecter</Button>
   </div>
 </Modal>

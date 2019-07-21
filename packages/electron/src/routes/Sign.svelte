@@ -95,12 +95,6 @@
   }
 </style>
 
-<div class="bg" />
-<div class="ocean">
-  <div class="wave" />
-  <div class="wave" />
-</div>
-
 {#if mode === 'login'}
   <LoginForm />
 {:else}

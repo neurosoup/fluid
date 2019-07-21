@@ -7,6 +7,8 @@
   export let startingTop = "4%";
   export let endingTop = "10%";
   export let maxWidth;
+  export let shadow =
+    "0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2)";
 
   const dispatch = createEventDispatcher();
 
@@ -94,7 +96,10 @@
   };
 </script>
 
-<div class="modal" style="max-width: {maxWidth || '55%'}px" use:mounted>
+<div
+  class="modal"
+  style="max-width: {maxWidth || '55%'}px; box-shadow:{shadow};"
+  use:mounted>
   <form on:submit|preventDefault={submit}>
     <div class="modal-content">
       <slot name="content" />

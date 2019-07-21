@@ -2,8 +2,8 @@
   import gql from "graphql-tag";
   import { client } from "../apollo";
   const LOGIN = gql`
-    mutation login($email: String!, $password: String!) {
-      login(email: $email, password: $password) {
+    mutation signup($name: String, $email: String!, $password: String!) {
+      signup(name: $name, email: $email, password: $password) {
         token
         user {
           name
@@ -29,15 +29,23 @@
   } from "@fluid/components";
 
   let errorMessage = "";
+  let loading = false;
 
   const submit = async e => {
     try {
+      loading = true;
       const mutation = await mutate(client, {
         mutation: LOGIN,
-        variables: { email: e.detail[0], password: e.detail[1] }
+        variables: {
+          name: e.detail[0],
+          email: e.detail[1],
+          password: e.detail[2]
+        }
       });
     } catch (error) {
       errorMessage = error.graphQLErrors[0].message;
+    } finally {
+      loading = false;
     }
   };
 </script>
@@ -53,7 +61,13 @@
   }
 </style>
 
-<Modal open on:submit={submit} dismissible={false} maxWidth={400}>
+<Modal
+  open
+  on:submit={submit}
+  dismissible={false}
+  maxWidth={400}
+  opacity="0"
+  shadow="none">
   <div slot="content">
     <Row center>
       <h4>Créer un compte</h4>
@@ -88,6 +102,6 @@
     </Row>
   </div>
   <div slot="footer">
-    <Button type="submit">S'inscrire</Button>
+    <Button type="submit" {loading}>S'inscrire</Button>
   </div>
 </Modal>

@@ -47,6 +47,9 @@ $link-color: color('light-blue', 'darken-1') !default;
 // 3. Buttons
 // ==========================================================================
 
+$button-disabled-background: #01597147 !default;
+$button-disabled-color: #ffffff87 !default;
+
 // 4. Cards
 // ==========================================================================
 
@@ -104,7 +107,10 @@ $gutter-width: 1rem !default;
 // 20. Typography
 // ==========================================================================
 
-$off-black: rgba(255, 255, 255, 0.87) !default;
+$font-stack: Rajdhani, sans-serif !default;
+
+// Dark theme
+//$off-black: rgba(255, 255, 255, 0.87) !default;
 
 // 21. Footer
 // ==========================================================================

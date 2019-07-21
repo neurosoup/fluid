@@ -6,6 +6,6 @@
 <Container>
   <Row />
   <Row>
-    <Button {...$$props} on:click>{label}</Button>
+    <Button {...$$props} icon="save" on:click>{label}</Button>
   </Row>
 </Container>

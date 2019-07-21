@@ -1,26 +1,40 @@
+// @import url('https://fonts.googleapis.com/css?family=Rajdhani&display=swap');
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('../fonts/Rajdhani-Regular.ttf') format('truetype'), url('../fonts/Rajdhani-Bold.ttf') format('truetype'),
+    url('../fonts/Rajdhani-Light.ttf') format('truetype'), url('../fonts/Rajdhani-Medium.ttf') format('truetype'),
+    url('../fonts/Rajdhani-SemiBold.ttf') format('truetype');
+}
+
+// Dark theme: #2f2f2f
+$theme-background: #ffffff;
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   overflow: hidden;
 
-  background: #2f2f2f;
+  background: $theme-background;
 }
 
 main {
   flex: 1 0 auto;
 }
 
+//Dark theme: use #2f2f2f for background colors
+
+//Light theme
 .modal {
-  background-color: #2f2f2f;
+  background-color: $theme-background;
   width: 55%;
 
   .modal-content {
-    background-color: #2f2f2f;
+    background-color: $theme-background;
   }
 
   .modal-footer {
-    background-color: #2f2f2f;
+    background-color: $theme-background;
   }
 }
 
